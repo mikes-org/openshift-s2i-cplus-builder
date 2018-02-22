@@ -1,4 +1,4 @@
-FROM rhscl/s2i-base-rhel7:1
+FROM registry.access.redhat.com/rhscl/s2i-base-rhel7:1
 
 # This image provides a C++ environment you can use to run your C++ 
 # applications.
