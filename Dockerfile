@@ -50,7 +50,7 @@ LABEL summary="$SUMMARY" \
 
 RUN yum install -y yum-utils && \
     prepare-yum-repositories rhel-server-rhscl-7-rpms && \
-    INSTALL_PKGS="gcc-g++" && \
+    INSTALL_PKGS="gcc-c++ cmake" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y
