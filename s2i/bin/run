@@ -50,8 +50,9 @@ fi
 # $ docker run -i -t openshift/centos-nodejs-builder --debug
 #
 [ "$1" == "--debug" ] && exec /bin/bash
-
-#echo add a run.sh to auto run or add a run Cmd
+pwd
+ls -lrt
+echo add a run.sh to auto run or add a run Cmd
 if [ -e "./run.sh" ]; then
   ./run.sh
 fi
