@@ -61,5 +61,7 @@ echo "---> Building your Node application from source"
 cmake .
 make
 
+chmod +x ./run.sh
+
 # Fix source directory permissions
 fix-permissions ./
