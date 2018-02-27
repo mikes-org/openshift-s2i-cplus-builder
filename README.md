@@ -1,1 +1,2 @@
-# s2i-cplus
+# Openshift S2I Builder for C++ applications
+The builder will create an application using c++ repos.  The builder will atempt to build using CMake if a CMakeList.txt file is present in the repo.  If a Makefile is present make will be used to create the applicaiton.  Otherwise the repo needs to build the application by create the ".s2i/bin/assemble" file.  The image will start the application using a "run.sh" file in the root of the repository.
