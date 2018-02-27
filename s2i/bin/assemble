@@ -31,35 +31,16 @@ echo "---> Installing application source ..."
 mv /tmp/src/* ./
 ls -lrt .
 
-if [ ! -z $HTTP_PROXY ]; then
-    echo "---> Setting npm http proxy to" $(safeLogging $HTTP_PROXY)
-	npm config set proxy $HTTP_PROXY
-fi
-
-if [ ! -z $http_proxy ]; then
-    echo "---> Setting npm http proxy to" $(safeLogging $http_proxy)
-	npm config set proxy $http_proxy
-fi
-
-if [ ! -z $HTTPS_PROXY ]; then
-    echo "---> Setting npm https proxy to" $(safeLogging $HTTPS_PROXY)
-	npm config set https-proxy $HTTPS_PROXY
-fi
-
-if [ ! -z $https_proxy ]; then
-    echo "---> Setting npm https proxy to" $(safeLogging $https_proxy)
-	npm config set https-proxy $https_proxy
-fi
-
-# Change the npm registry mirror if provided
-if [ -n "$NPM_MIRROR" ]; then
-	npm config set registry $NPM_MIRROR
-fi
-
 echo "---> Building your Node application from source"
 #npm install
-cmake .
-make
+if [ -e "./CMakeLists.txt" ]; then
+  echo "Running CMake"
+  cmake .
+fi
+if [ -e "./Makefile" ]; then
+  echo "Running make"
+  make
+fi
 
 chmod +x ./run.sh
 
